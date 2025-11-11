@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package miner;
+
+service Miner {
+  // Pega o desafio atual (TransactionID e Challenge)
+  rpc GetCurrentChallenge(Empty) returns (ChallengeInfo) {}
+
+  // Submete uma solução candidata para o Transaction corrente
+  rpc SubmitSolution(SolutionSubmission) returns (SubmitResponse) {}
+
+  // (Opcional) Para reutilizar exemplo anterior: um serviço Adder simples
+  rpc Add(AdderRequest) returns (AdderResponse) {}
+}
+
+message Empty {}
+
+message ChallengeInfo {
+  int32 transaction_id = 1;
+  int32 challenge = 2; // 1..20 (1 mais facil)
+  int64 timestamp = 3; // unix epoch ms (opcional)
+}
+
+message SolutionSubmission {
+  int32 transaction_id = 1;
+  string client_id = 2;
+  string candidate = 3;
+}
+
+message SubmitResponse {
+  bool accepted = 1;     // se foi aceita como solução vencedora
+  string message = 2;    // feedback
+  int32 winner_client_id = 3; // -1 se ainda não tem vencedor
+  string solution = 4;   // solução encontrada (se houver)
+}
+
+message AdderRequest {
+  int32 a = 1;
+  int32 b = 2;
+}
+
+message AdderResponse {
+  int32 sum = 1;
+}
