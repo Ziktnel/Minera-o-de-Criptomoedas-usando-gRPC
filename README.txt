@@ -2,6 +2,7 @@ GABRIEL BASTOS ZIKTNEL
 RONIEL REICH
 KAYO SANCHES
 
+link do video: https://screenapp.io/app/v/OgMG8kze-s
 
 Atividade 1 – Mineração de Criptomoedas usando gRPC
 1. Introdução
@@ -91,5 +92,6 @@ Implementar uma interface de monitoramento em tempo real das transações.
 Permitir que múltiplos desafios sejam processados em paralelo.
 
 Armazenar os registros em banco de dados para análise posterior.
+
 
 Em síntese, a atividade cumpriu com sucesso seu papel didático, evidenciando o potencial do gRPC na construção de sistemas distribuídos e na compreensão dos mecanismos que fundamentam a mineração de criptomoedas.
