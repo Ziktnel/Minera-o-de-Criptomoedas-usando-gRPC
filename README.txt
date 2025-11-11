@@ -2,9 +2,99 @@ GABRIEL BASTOS ZIKTNEL
 RONIEL REICH
 KAYO SANCHES
 
+
+Atividade 1 - Calculadora
+link do video: https://screenapp.io/app/v/RRQTa1sATE
+
+1. Introdução
+
+Esta atividade teve como objetivo implementar um serviço remoto de calculadora distribuída utilizando o protocolo gRPC em linguagem Python.
+A proposta consiste em adaptar o exemplo de RPC fornecido para que o sistema ofereça as principais operações aritméticas (soma, subtração, multiplicação e divisão) de forma interativa, onde o usuário escolhe a operação e insere os operandos.
+
+O gRPC foi escolhido por ser uma tecnologia moderna baseada em Protocol Buffers, que permite alta performance e comunicação estruturada entre cliente e servidor, sendo amplamente utilizada em sistemas distribuídos e microsserviços.
+
+2. Objetivos
+
+Implementar um servidor gRPC que disponibiliza operações aritméticas básicas.
+
+Implementar um cliente interativo, com menu de seleção de operação.
+
+Permitir que o cliente envie requisições remotas ao servidor e receba os resultados.
+
+Garantir resiliência e tolerância a falhas utilizando o padrão Circuit Breaker.
+
+Demonstrar o funcionamento de chamadas RPC síncronas em um ambiente distribuído.
+
+3. Metodologia
+
+A implementação foi realizada em Python, utilizando os módulos grpcio, grpcio-tools e pybreaker.
+O projeto foi dividido em três etapas principais:
+
+Definição da Interface RPC
+
+Criação de um arquivo .proto definindo o serviço api, com métodos correspondentes às quatro operações aritméticas.
+
+Uso do compilador protoc para gerar automaticamente as classes de comunicação (grpcCalc_pb2.py e grpcCalc_pb2_grpc.py).
+
+Servidor gRPC
+
+Implementa o serviço remoto que processa as operações matemáticas.
+
+Fica em execução contínua, aguardando conexões de múltiplos clientes.
+
+Retorna o resultado de cada operação requisitada.
+
+Cliente gRPC com Menu Interativo
+
+Interface textual amigável que permite escolher a operação desejada.
+
+O cliente lê os valores inseridos, envia a requisição ao servidor e exibe o resultado.
+
+O Circuit Breaker foi configurado para impedir falhas sucessivas caso o servidor fique indisponível.
+
+4. Resultados Obtidos
+
+Durante os testes, o sistema apresentou comportamento esperado:
+
+O cliente conectou corretamente ao servidor.
+
+Todas as operações (soma, subtração, multiplicação e divisão) retornaram resultados corretos.
+
+O servidor permaneceu ativo e aceitou múltiplas chamadas consecutivas.
+
+O Circuit Breaker foi capaz de detectar e isolar falhas temporárias de conexão.
+
+Exemplo de execuções observadas no terminal:
+
+Soma: 2 + 3 → 5
+
+Subtração: 10 – 4 → 6
+
+Multiplicação: 2 × 3 → 6
+
+Divisão: 8 ÷ 2 → 4
+
+5. Conclusão
+
+A atividade foi concluída com sucesso.
+O protótipo desenvolvido cumpre todos os requisitos da proposta, demonstrando a comunicação cliente-servidor via gRPC e a execução remota de funções de forma eficiente e estruturada.
+
+Além de consolidar o entendimento do modelo RPC, o projeto introduziu boas práticas de resiliência e tratamento de falhas com o uso do Circuit Breaker.
+A implementação mostrou-se simples, modular e facilmente escalável para novas operações.
+
+
+
+***************************************************________________________________________________***************************************
+
+
+
+
+
+
+
 link do video: https://screenapp.io/app/v/OgMG8kze-s
 
-Atividade 1 – Mineração de Criptomoedas usando gRPC
+Atividade 2 – Mineração de Criptomoedas usando gRPC
 1. Introdução
 
 Esta atividade teve como objetivo o desenvolvimento de um protótipo de sistema de mineração de criptomoedas utilizando o modelo cliente-servidor baseado em chamadas de procedimento remoto (gRPC). A proposta visa compreender o funcionamento básico de uma rede de mineração, onde diversos clientes competem para resolver desafios criptográficos gerados por um servidor central.
@@ -95,3 +185,4 @@ Armazenar os registros em banco de dados para análise posterior.
 
 
 Em síntese, a atividade cumpriu com sucesso seu papel didático, evidenciando o potencial do gRPC na construção de sistemas distribuídos e na compreensão dos mecanismos que fundamentam a mineração de criptomoedas.
+
